@@ -1,0 +1,17 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sample-pt-gw-{{ $activeProfiles }}
+    service: sample-pt-gw-{{ $activeProfiles }}
+  name: sample-pt-gw
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 9001
+  selector:
+    app: sample-pt-gw-{{ $activeProfiles }}
+

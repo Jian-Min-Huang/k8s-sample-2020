@@ -1,0 +1,11 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+
+apiVersion: v1
+data:
+  TZ: Asia/Taipei
+  activeProfiles: {{ $activeProfiles }}
+kind: ConfigMap
+metadata:
+  labels:
+    app: sample-item-{{ $activeProfiles }}
+  name: sample-item-config

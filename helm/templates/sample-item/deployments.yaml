@@ -1,0 +1,36 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-item-{{ $activeProfiles }}-v1
+  labels:
+    app: sample-item-{{ $activeProfiles }}
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-item-{{ $activeProfiles }}
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: sample-item-{{ $activeProfiles }}
+        version: v1
+    spec:
+      containers:
+        - name: sample-item
+          env:
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  key: TZ
+                  name: sample-item-config
+            - name: activeProfiles
+              valueFrom:
+                configMapKeyRef:
+                  key: activeProfiles
+                  name: sample-item-config
+          image: local/sample-item:1
+          imagePullPolicy: IfNotPresent

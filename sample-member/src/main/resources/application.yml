@@ -1,0 +1,15 @@
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=false
+    username: root
+    password: 123456
+
+---
+
+spring:
+  profiles: k8s
+  datasource:
+    url: jdbc:mysql://192.168.0.103:3306/test?useSSL=false
+    username: root
+    password: 123456

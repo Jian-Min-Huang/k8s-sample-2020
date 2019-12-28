@@ -1,0 +1,16 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sample-item-{{ $activeProfiles }}
+    service: sample-item-{{ $activeProfiles }}
+  name: sample-item
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 9527
+  selector:
+    app: sample-item-{{ $activeProfiles }}

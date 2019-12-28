@@ -1,0 +1,17 @@
+spring:
+  profiles: local
+  redis:
+    host: 127.0.0.1
+host:
+  sample:
+    item: "http://127.0.0.1:9527"
+
+---
+
+spring:
+  profiles: k8s
+  redis:
+    host: 192.168.0.103
+host:
+  sample:
+    item: "http://sample-item"

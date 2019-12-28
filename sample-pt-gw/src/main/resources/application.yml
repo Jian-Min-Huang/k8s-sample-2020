@@ -1,0 +1,15 @@
+spring:
+  profiles: local
+host:
+  sample:
+    lg:
+      gw: "http://127.0.0.1:9999"
+
+---
+
+spring:
+  profiles: k8s
+host:
+  sample:
+    lg:
+      gw: "http://sample-lg-gw"

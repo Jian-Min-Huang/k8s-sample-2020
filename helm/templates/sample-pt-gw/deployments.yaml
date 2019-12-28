@@ -1,0 +1,36 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-pt-gw-{{ $activeProfiles }}-v1
+  labels:
+    app: sample-pt-gw-{{ $activeProfiles }}
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-pt-gw-{{ $activeProfiles }}
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: sample-pt-gw-{{ $activeProfiles }}
+        version: v1
+    spec:
+      containers:
+        - name: sample-pt-gw
+          env:
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  key: TZ
+                  name: sample-pt-gw-config
+            - name: activeProfiles
+              valueFrom:
+                configMapKeyRef:
+                  key: activeProfiles
+                  name: sample-pt-gw-config
+          image: local/sample-pt-gw:1
+          imagePullPolicy: IfNotPresent
