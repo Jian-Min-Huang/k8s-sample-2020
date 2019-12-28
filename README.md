@@ -6,3 +6,7 @@ mvn compile jib:build \
 -Djib.to.auth.username=$USERNAME \
 -Djib.to.auth.password=$PASSWORD
 ```
+
+### references
+* https://github.com/GoogleContainerTools/skaffold
+* https://github.com/GoogleContainerTools/jib
