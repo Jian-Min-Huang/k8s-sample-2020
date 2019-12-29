@@ -5,3 +5,7 @@
 replicasCount: 1
 
 activeProfiles: k8s
+
+global:
+  redis:
+    password: 123456

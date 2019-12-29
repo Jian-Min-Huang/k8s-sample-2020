@@ -10,6 +10,6 @@ spring:
 spring:
   profiles: k8s
   datasource:
-    url: jdbc:mysql://192.168.0.103:3306/test?useSSL=false
+    url: jdbc:mysql://sample-mysql:3306/test?useSSL=false
     username: root
     password: 123456

@@ -32,5 +32,5 @@ spec:
                 configMapKeyRef:
                   key: activeProfiles
                   name: sample-member-config
-          image: local/sample-member:1
+          image: jianminhuang/sample-member:1
           imagePullPolicy: IfNotPresent

@@ -32,5 +32,5 @@ spec:
                 configMapKeyRef:
                   key: activeProfiles
                   name: sample-task-config
-          image: local/sample-task:1
+          image: jianminhuang/sample-task:1
           imagePullPolicy: IfNotPresent

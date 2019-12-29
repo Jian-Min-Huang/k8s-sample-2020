@@ -32,5 +32,5 @@ spec:
                 configMapKeyRef:
                   key: activeProfiles
                   name: sample-pt-gw-config
-          image: local/sample-pt-gw:1
+          image: jianminhuang/sample-pt-gw:1
           imagePullPolicy: IfNotPresent

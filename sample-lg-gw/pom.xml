@@ -66,8 +66,7 @@
                         <entrypoint>
                             <arg>/bin/sh</arg>
                             <arg>-c</arg>
-                            <arg>java -Xms512m -Xmx512m -Dspring.profiles.active=${activeProfiles} -cp
-                                /app/resources:/app/classes:/app/libs/* org.yfr.sample.lg.gw.SampleLgGwApp
+                            <arg>java -Xms512m -Xmx512m -Dspring.profiles.active=${activeProfiles} -cp /app/resources:/app/classes:/app/libs/* org.yfr.sample.lg.gw.SampleLgGwApp
                             </arg>
                         </entrypoint>
                     </container>

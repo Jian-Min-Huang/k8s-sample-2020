@@ -32,5 +32,5 @@ spec:
                 configMapKeyRef:
                   key: activeProfiles
                   name: sample-lg-gw-config
-          image: local/sample-lg-gw:1
+          image: jianminhuang/sample-lg-gw:1
           imagePullPolicy: IfNotPresent
