@@ -101,7 +101,7 @@ kubectl port-forward svc/istio-ingressgateway 10080:80 -n istio-system
 enable Grafana with istioctl in default cluster
 ```
 istioctl manifest apply --set values.grafana.enabled=true
-kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=grafana -o jsonpath='{.items[0].metadata.name}') 3000:3000
+kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=grafana -o jsonpath='{.items[0].metadata.name}') 3000:3000 &
 ```
 
 ### jaeger https://www.jaegertracing.io/
