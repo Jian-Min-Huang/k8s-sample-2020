@@ -5,10 +5,13 @@
 ||Spring|Kubernetes|
 |---|---|---|
 |Service Discovery|Eureka|Kubernetes DNS|
+|Gateway|Zuul & Cloud Gateway|Kubernetes Ingress|
+|Traffic|Eureka & Feign & Ribbon|Istio|
 |Circuit Break, Rate Limit, Retry, Timeout|Hystrix|Istio|
-|Fault fall back|   |   |
-|Monitor|Spring Boot Admin & Actuator|Grafana & Prometheus|
-|Config|Spring Cloud Config|Kubernetes Configmap|
+|(Fault injection & fall back)|||
+|Monitor|Boot Admin & Actuator|Grafana & Prometheus|
+|Trace|Sleuth & Zipkin|Jaeger|
+|Config|Cloud Config|Kubernetes Configmap|
 
 # k3d, helm, jib, spring jaeger kiali grafana prometheus
 
