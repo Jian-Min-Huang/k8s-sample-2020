@@ -18,7 +18,7 @@ public class MemberController implements MemberApi {
     private MemberService memberService;
 
     @Override
-    public Member findByAccount(HttpHeaders headers, String account) throws Exception {
+    public Member findByAccount(String account) throws Exception {
         return memberService.findByAccount(account);
     }
 }

@@ -18,12 +18,12 @@ public class ItemController implements ItemApi {
     private ItemService itemService;
 
     @Override
-    public Item parse(HttpHeaders headers) throws Exception {
+    public Item parse() throws Exception {
         return itemService.parse();
     }
 
     @Override
-    public List<Item> findByCode(HttpHeaders headers, String code) throws Exception {
+    public List<Item> findByCode(String code) throws Exception {
         return itemService.findByCode(code);
     }
 }
