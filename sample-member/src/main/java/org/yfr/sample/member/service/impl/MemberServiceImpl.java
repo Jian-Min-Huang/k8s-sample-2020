@@ -7,6 +7,7 @@ import org.yfr.sample.member.data.dao.MemberRepository;
 import org.yfr.sample.member.service.MemberService;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 
 @Slf4j
 @Service
@@ -17,9 +18,9 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member findByAccount(String account) throws Exception {
-        // for test, insert data
+        // bad pattern, just for test
         if (!memberRepository.findById(1L).isPresent()) {
-            memberRepository.save(Member.builder().account("Vincent").alias("abc").password("123456").build());
+            memberRepository.save(Member.builder().account("Vincent").alias("abc").password("123456").createTime(LocalDateTime.now()).build());
         }
 
         return memberRepository.findByAccount(account).orElseThrow(RuntimeException::new);
