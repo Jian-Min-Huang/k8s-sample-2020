@@ -11,19 +11,19 @@
 |Monitor|Boot Admin & Actuator|Grafana & Prometheus|
 |Trace|Cloud Sleuth & Zipkin|jaeger|
 |Config|Cloud Config|Kubernetes Configmap|
-* These two are not fully replace relation ! For example, even you use Grafana & Prometheus you still need Actuator to export the metrics in application.
+* These two are not fully replaced relation ! For example, even you use Grafana & Prometheus you still need Actuator to export the metrics in application.
 
 ### Monitor
 |item|frameworks or tools|
 |---|---|
 |http 200|Prometheus stack & liveness and readiness probe|
 |application log|ELK stack|
-|application metrics|Prometheus stack|
-|k8s cluster metrics|Prometheus stack|
+|application metrics|Prometheus stack, jaeger|
+|k8s cluster metrics|Prometheus stack, kiali|
 |services (redis, queue)|Prometheus stack|
-|business health|?|
-|business index|?|
-|3rd party service|?|
+|business health|newman or python ?|
+|business index|Prometheus stack|
+|3rd party service|custom exporter ?|
 |database|Prometheus stack|
 
 ### Prerequisite
@@ -127,7 +127,7 @@ istioctl dashboard kiali
 echo DOCKER_HUB_USERNAME=$DOCKER_HUB_USERNAME >> ~/.zshrc
 echo DOCKER_HUB_PASSWORD=$DOCKER_HUB_PASSWORD >> ~/.zshrc
 
-mvn compile jib:build -Djib.to.auth.username=$DOCKER_HUB_USERNAME -Djib.to.auth.password=$DOCKER_HUB_PASSWORD
+./mvnw compile jib:build -Djib.to.auth.username=$DOCKER_HUB_USERNAME -Djib.to.auth.password=$DOCKER_HUB_PASSWORD
 ```
 * why jib but not Dockerfile
 
