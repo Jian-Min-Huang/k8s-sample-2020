@@ -136,5 +136,5 @@ echo DOCKER_HUB_PASSWORD=$DOCKER_HUB_PASSWORD >> ~/.zshrc
 ```
 * [why jib](https://github.com/Jian-Min-Huang/tech-note/issues/32)
 
-### references
+## references
 * https://github.com/GoogleContainerTools/skaffold
