@@ -12,7 +12,9 @@ import org.yfr.sample.item.service.ItemService;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Slf4j
 @Service
@@ -23,13 +25,19 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item parse() throws Exception {
-        Document doc = Jsoup.connect("https://www.wantgoo.com/global/stockindex?StockNo=0000").get();
-        Elements price = doc.select(".price");
+//        Document doc = Jsoup.connect("https://www.wantgoo.com/global/stockindex?StockNo=0000").get();
+//        Elements price = doc.select(".price");
+//
+//        Item item = Item.builder()
+//                .code("0000")
+//                .createTime(LocalDateTime.now())
+//                .price(Float.parseFloat(((TextNode) price.get(0).childNodes().get(0)).text()))
+//                .build();
 
         Item item = Item.builder()
                 .code("0000")
                 .createTime(LocalDateTime.now())
-                .price(Float.parseFloat(((TextNode) price.get(0).childNodes().get(0)).text()))
+                .price(new Random(new Date().getTime()).nextInt(200) + 10000f)
                 .build();
 
         Item save = itemRepository.save(item);

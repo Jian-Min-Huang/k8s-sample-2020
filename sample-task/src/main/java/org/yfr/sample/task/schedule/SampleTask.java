@@ -21,13 +21,11 @@ public class SampleTask {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-    @Scheduled(cron = "0 */1 * * * *")
+    @Scheduled(cron = "*/5 * * * * *")
     @SchedulerLock(name = "parseItem", lockAtMostForString = "PT2M")
     public void parseItem() {
         try {
-            HttpEntity entity = new HttpEntity(new HttpHeaders());
-
-            log.info("parse {}", restTemplate.exchange(itemHost + "/item", HttpMethod.POST, entity, Item.class).getBody().toString());
+            log.info("parse {}", restTemplate.exchange(itemHost + "/item", HttpMethod.POST, new HttpEntity(new HttpHeaders()), Item.class).getBody().toString());
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
         }
