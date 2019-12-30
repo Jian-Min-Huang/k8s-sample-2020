@@ -1,6 +1,15 @@
 # k8s-sample-2020
 > This repository demostrate an architecture for porting ☁️Spring Cloud Netflix solution to 🛳Kubernetes. To achieve this goal, we need to find all the important feature in ☁️Spring Cloud Netflix solution and compare the alternatives. If you are also do same thing I do, I hope this repository can help you. If you have any questions, feel free to contact me 🙂
 
+# compare
+||Spring|Kubernetes|
+|---|---|---|
+|Service Discovery|Eureka|Kubernetes DNS|
+|Circuit Break, Rate Limit, Retry, Timeout|Hystrix|Istio|
+|Fault fall back|   |   |
+|Monitor|Spring Boot Admin & Actuator|Grafana & Prometheus|
+|Config|Spring Cloud Config|Kubernetes Configmap|
+
 # k3d, helm, jib, spring jaeger kiali grafana prometheus
 
 ### jib
