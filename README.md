@@ -21,9 +21,9 @@
 |application metrics|Prometheus stack, jaeger|
 |k8s cluster metrics|Prometheus stack, kiali|
 |services (redis, queue)|Prometheus stack|
-|business health|newman or python (tbd)|
+|business health|newman or python (**tbd**)|
 |business index|Prometheus stack|
-|3rd party service|custom exporter (tbd)|
+|3rd party service|custom exporter (**tbd**)|
 |database|Prometheus stack|
 
 ### Prerequisite
@@ -130,7 +130,7 @@ echo DOCKER_HUB_PASSWORD=$DOCKER_HUB_PASSWORD >> ~/.zshrc
 
 ./mvnw compile jib:build -Djib.to.auth.username=$DOCKER_HUB_USERNAME -Djib.to.auth.password=$DOCKER_HUB_PASSWORD
 ```
-* why jib but not Dockerfile
+* [why jib but not Dockerfile](https://github.com/Jian-Min-Huang/tech-note/issues/32)
 
 ### references
 * https://github.com/GoogleContainerTools/skaffold
