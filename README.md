@@ -28,6 +28,19 @@ mvn compile jib:build -Djib.to.auth.username=$DOCKER_HUB_USERNAME -Djib.to.auth.
 helm dep up
 ```
 
+### Monitor
+|item|frameworks or tools|
+|---|---|
+|http 200|Prometheus stack & liveness and readiness probe|
+|application log|ELK stack|
+|application metrics|Prometheus stack|
+|k8s cluster metrics|Prometheus stack|
+|services (redis, queue)|Prometheus stack|
+|business health||
+|business index||
+|3rd party service||
+|database|Prometheus stack|
+
 ### references
 * https://github.com/GoogleContainerTools/skaffold
 * https://github.com/GoogleContainerTools/jib
