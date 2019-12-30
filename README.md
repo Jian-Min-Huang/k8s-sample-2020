@@ -21,9 +21,9 @@
 |application metrics|Prometheus stack, jaeger|
 |k8s cluster metrics|Prometheus stack, kiali|
 |services (redis, queue)|Prometheus stack|
-|business health|newman or python (**tbd**)|
+|business health|(**tbd**)|
 |business index|Prometheus stack|
-|3rd party service|custom exporter (**tbd**)|
+|3rd party service|(**tbd**)|
 |database|Prometheus stack|
 
 ### Prerequisite
@@ -90,7 +90,7 @@ kubectl get svc,pods -n istio-system
 kubectl label namespace default istio-injection=enabled
 ```
 
-### helm
+### helm install
 ```
 helm install --name sample-mysql --set mysqlRootPassword=1qaz2wsx,mysqlDatabase=test stable/mysql
 helm install --name sample .
@@ -126,14 +126,14 @@ kubectl -n istio-system get svc kiali
 istioctl dashboard kiali
 ```
 
-### jib
+### jib https://github.com/GoogleContainerTools/jib
 ```
 echo DOCKER_HUB_USERNAME=$DOCKER_HUB_USERNAME >> ~/.zshrc
 echo DOCKER_HUB_PASSWORD=$DOCKER_HUB_PASSWORD >> ~/.zshrc
 
 ./mvnw compile jib:build -Djib.to.auth.username=$DOCKER_HUB_USERNAME -Djib.to.auth.password=$DOCKER_HUB_PASSWORD
 ```
-* [why jib but not Dockerfile](https://github.com/Jian-Min-Huang/tech-note/issues/32)
+* [why jib](https://github.com/Jian-Min-Huang/tech-note/issues/32)
 
 ### references
 * https://github.com/GoogleContainerTools/skaffold
