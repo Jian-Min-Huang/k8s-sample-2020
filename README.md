@@ -21,9 +21,9 @@
 |application metrics|Prometheus stack, jaeger|
 |k8s cluster metrics|Prometheus stack, kiali|
 |services (redis, queue)|Prometheus stack|
-|business health|newman or python (**tbd**)|
+|business health|(**tbd**)|
 |business index|Prometheus stack|
-|3rd party service|custom exporter (**tbd**)|
+|3rd party service|(**tbd**)|
 |database|Prometheus stack|
 
 ### Prerequisite
