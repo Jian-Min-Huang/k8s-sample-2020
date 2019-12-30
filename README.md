@@ -94,6 +94,7 @@ kubectl label namespace default istio-injection=enabled
 ```
 helm install --name sample-mysql --set mysqlRootPassword=1qaz2wsx,mysqlDatabase=test stable/mysql
 helm install --name sample .
+kubectl port-forward svc/istio-ingressgateway 10080:80 -n istio-system
 ```
 
 ### Grafana https://grafana.com/
