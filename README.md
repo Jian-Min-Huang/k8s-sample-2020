@@ -106,7 +106,6 @@ istioctl manifest apply \
     --set values.tracing.enabled=true \
     --set "values.kiali.dashboard.jaegerURL=http://jaeger-query:63399" \
     --set "values.kiali.dashboard.grafanaURL=http://grafana:3000"
-
 kubectl -n istio-system get svc prometheus
 kubectl -n istio-system get svc grafana
 kubectl -n istio-system get svc kiali
