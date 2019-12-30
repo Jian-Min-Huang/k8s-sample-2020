@@ -17,6 +17,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member findByAccount(String account) throws Exception {
+        // for test, insert data
+        if (!memberRepository.findById(1L).isPresent()) {
+            memberRepository.save(Member.builder().account("Vincent").alias("abc").password("123456").build());
+        }
+
         return memberRepository.findByAccount(account).orElseThrow(RuntimeException::new);
     }
 }
