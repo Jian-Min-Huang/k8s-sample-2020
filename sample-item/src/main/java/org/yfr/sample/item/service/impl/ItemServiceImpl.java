@@ -1,10 +1,6 @@
 package org.yfr.sample.item.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.TextNode;
-import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 import org.yfr.sample.common.entity.Item;
 import org.yfr.sample.item.data.dao.ItemRepository;
@@ -25,15 +21,6 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item parse() throws Exception {
-//        Document doc = Jsoup.connect("https://www.wantgoo.com/global/stockindex?StockNo=0000").get();
-//        Elements price = doc.select(".price");
-//
-//        Item item = Item.builder()
-//                .code("0000")
-//                .createTime(LocalDateTime.now())
-//                .price(Float.parseFloat(((TextNode) price.get(0).childNodes().get(0)).text()))
-//                .build();
-
         Item item = Item.builder()
                 .code("0000")
                 .createTime(LocalDateTime.now())
