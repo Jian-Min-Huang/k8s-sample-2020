@@ -7,7 +7,7 @@
 |Service Discovery|Eureka|Kubernetes DNS|
 |Gateway|Zuul & Cloud Gateway|Kubernetes Ingress|
 |Traffic|Eureka & Feign & Ribbon|Istio|
-|Circuit Break, Rate Limit, Retry, Timeout|Hystrix|Istio|
+|Circuit Break, Rate Limit, Retry, Timeout, Fast Fall|Hystrix|Istio|
 |Monitor|Boot Admin & Actuator|Grafana & Prometheus|
 |Trace|Cloud Sleuth & Zipkin|jaeger|
 |Config|Cloud Config|Kubernetes Configmap|
