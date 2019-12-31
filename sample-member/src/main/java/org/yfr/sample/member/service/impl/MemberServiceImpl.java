@@ -9,6 +9,7 @@ import org.yfr.sample.member.service.MemberService;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -25,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Member findByAccount(String account) throws Exception {
-        return memberRepository.findTopByAccountOrderByCreateTimeDesc(account).orElseThrow(RuntimeException::new);
+    public List<Member> findByAccount(String account) throws Exception {
+        return memberRepository.findTop2ByAccountOrderByCreateTimeDesc(account);
     }
 }

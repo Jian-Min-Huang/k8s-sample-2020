@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.yfr.sample.common.entity.Member;
 
+import java.util.List;
+
 @FeignClient(name = "MemberApi", url = "${host.sample.member}")
 public interface MemberApi {
 
     @GetMapping("/member")
-    Member findByAccount(@RequestParam("account") String account) throws Exception;
+    List<Member> findByAccount(@RequestParam("account") String account) throws Exception;
 
 }
