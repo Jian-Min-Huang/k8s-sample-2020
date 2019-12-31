@@ -10,8 +10,8 @@ spec:
     - destination:
         host: sample-member
         subset: v1
-      weight: 80
+      weight: 50
     - destination:
         host: sample-member
-        subset: v2
-      weight: 20
+        subset: v3
+      weight: 50

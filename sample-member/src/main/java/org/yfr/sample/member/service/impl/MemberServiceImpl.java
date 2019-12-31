@@ -27,6 +27,6 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public List<Member> findByAccount(String account) throws Exception {
-        return memberRepository.findTop2ByAccountOrderByCreateTimeDesc(account);
+        return memberRepository.findTop15ByAccountOrderByCreateTimeDesc(account);
     }
 }

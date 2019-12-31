@@ -10,6 +10,8 @@ import java.util.Optional;
 @RepositoryRestResource
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
-    List<Member> findTop2ByAccountOrderByCreateTimeDesc(String account);
+    List<Member> findTop5ByAccountOrderByCreateTimeDesc(String account);
+
+    List<Member> findTop15ByAccountOrderByCreateTimeDesc(String account);
 
 }

@@ -38,21 +38,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-member-{{ $activeProfiles }}-v2
+  name: sample-member-{{ $activeProfiles }}-v3
   labels:
     app: sample-member-{{ $activeProfiles }}
-    version: v2
+    version: v3
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: sample-member-{{ $activeProfiles }}
-      version: v2
+      version: v3
   template:
     metadata:
       labels:
         app: sample-member-{{ $activeProfiles }}
-        version: v2
+        version: v3
     spec:
       containers:
         - name: sample-member
@@ -67,4 +67,5 @@ spec:
                 configMapKeyRef:
                   key: activeProfiles
                   name: sample-member-config
-          image: jianminhuang/sample-member:2
+          image: jianminhuang/sample-member:3
+          imagePullPolicy: IfNotPresent

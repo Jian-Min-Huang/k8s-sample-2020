@@ -90,8 +90,10 @@ kubectl label namespace default istio-injection=enabled
 
 ## helm install
 ```
-helm install --name sample-mysql --set mysqlRootPassword=1qaz2wsx,mysqlDatabase=test stable/mysql
-helm install --name sample .
+helm install --name sample-redis --values ../helm/values.yaml stable/redis
+helm install --name sample-rabbitmq --values ../helm/values.yaml stable/rabbitmq
+helm install --name sample-mysql --values ../helm/values.yaml stable/mysql
+helm install --name sample ./helm
 kubectl port-forward svc/istio-ingressgateway 10080:80 -n istio-system
 ```
 
