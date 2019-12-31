@@ -1,9 +1,6 @@
 
-Thank you for installing {{ .Chart.Name }}.
+** Please be patient while the chart is being deployed **
 
-Your release is named {{ .Release.Name }}.
+To access for outside the cluster, perform the following steps:
 
-To learn more about the release, try:
-
-  $ helm status {{ .Release.Name }}
-  $ helm get {{ .Release.Name }}
+    kubectl port-forward svc/istio-ingressgateway 10080:80 -n istio-system

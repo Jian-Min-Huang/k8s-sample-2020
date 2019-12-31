@@ -1,11 +1,22 @@
-# Default values for chart.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
+### sample ###
 replicasCount: 1
-
 activeProfiles: k8s
 
+### helm common ###
+metrics:
+  enabled: true
+
+### helm redis ###
 global:
   redis:
     password: 123456
+
+### helm rabbitmq ###
+rabbitmq:
+  username: rabbitmq
+  password: rabbitmq
+
+### helm mysql ###
+mysqlRootPassword: "1qaz2wsx"
+mysqlDatabase:test
+

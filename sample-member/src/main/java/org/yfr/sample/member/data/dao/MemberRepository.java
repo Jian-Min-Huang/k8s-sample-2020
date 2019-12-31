@@ -9,6 +9,6 @@ import java.util.Optional;
 @RepositoryRestResource
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
-    Optional<Member> findByAccount(String account);
+    Optional<Member> findTopByAccountOrderByCreateTimeDesc(String account);
 
 }

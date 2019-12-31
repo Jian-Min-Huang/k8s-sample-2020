@@ -1,5 +1,8 @@
 spring:
   profiles: local
+  rabbitmq:
+    username: rabbitmq
+    password: rabbitmq
   datasource:
     url: jdbc:mysql://localhost:3306/test?useSSL=false
     username: root
@@ -9,6 +12,10 @@ spring:
 
 spring:
   profiles: k8s
+  rabbitmq:
+    host: sample-rabbitmq
+    username: rabbitmq
+    password: rabbitmq
   datasource:
     url: jdbc:mysql://sample-mysql:3306/test?useSSL=false
     username: root

@@ -17,16 +17,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class SampleTaskApp {
 
     @Bean
-    public Queue memberQueue() {
-        return new Queue("member", false);
-    }
-
-    @RabbitListener(queues = "member")
-    public void listen(String element) {
-        System.out.println("Message read from member queue : " + element);
-    }
-
-    @Bean
     public LockProvider lockProvider(final RedisConnectionFactory redisConnectionFactory) {
         return new RedisLockProvider(redisConnectionFactory);
     }
