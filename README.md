@@ -1,7 +1,7 @@
 # k8s-sample-2020
-> This repository demostrate an architecture for porting ☁️Spring Cloud Netflix solution to 🛳Kubernetes. To achieve this goal, we need to find all the important feature in ☁️Spring Cloud Netflix solution and compare the alternatives. If you are also do same thing I do, I hope this repository can help you. If you have any questions, feel free to contact me 🙂
+> This repository demostrate an architecture for porting ☁️Spring Cloud Netflix solution to 🛳Kubernetes. To achieve this goal, we need to find all the important feature in ☁️Spring Cloud Netflix solution and compare the alternatives. If you are also do same thing I do, I hope this repository can help you. If you have any questions, feel free to contact me 🙂.
 
-## Frameworks or Tools
+## Frameworks or Tools 🛠
 |feature|Spring|Kubernetes|
 |---|---|---|
 |Service Discovery|Eureka|Kubernetes DNS|
@@ -11,10 +11,10 @@
 |Monitor|Boot Admin & Actuator|Grafana & Prometheus|
 |Trace|Cloud Sleuth & Zipkin|jaeger|
 |Config|Cloud Config|Kubernetes Configmap|
-* These two are not fully replaced relation ! For example, even you use Grafana & Prometheus you still need Actuator to export the metrics in application.
-* Istio don't have downgrade fallback feature
+* These two are not fully replaced relation! For example, even you use Grafana & Prometheus you still need Actuator to export the metrics in application.
+* Istio doesn't have downgrade fallback feature until 1.4.
 
-## Monitor
+## Monitor 📺
 |item|frameworks or tools|
 |---|---|
 |http 200|Prometheus stack & liveness and readiness probe|
@@ -24,8 +24,9 @@
 |services (redis, queue)|Prometheus stack|
 |business index|Prometheus stack|
 |database|Prometheus stack|
+* I skip the business and 3rd party health.
 
-## Prerequisite
+## Prerequisite (assume u r a macOS and Z shell coder 👻)
 install brew
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -36,7 +37,7 @@ brew install kubectl
 ```
 install Java
 ```
-umm, I need to teach you this ? 🤣
+umm ..., I need to teach you this ? 🤣
 ```
 
 ## k3d https://github.com/rancher/k3d
@@ -129,7 +130,7 @@ echo DOCKER_HUB_PASSWORD=$DOCKER_HUB_PASSWORD >> ~/.zshrc
 ```
 * [why jib](https://github.com/Jian-Min-Huang/tech-note/issues/32)
 
-## clean
+## cleanup
 ```
 helm delete --purge sample
 istioctl manifest generate --set profile=demo | kubectl delete -f -
