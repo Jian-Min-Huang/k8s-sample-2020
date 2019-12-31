@@ -7,11 +7,12 @@
 |Service Discovery|Eureka|Kubernetes DNS|
 |Gateway|Zuul & Cloud Gateway|Kubernetes Ingress|
 |Traffic|Eureka & Feign & Ribbon|Istio|
-|Circuit Break, Rate Limit, Timeout, ...|Hystrix|Istio|
+|Circuit Break, Rate Limit, Retry, Timeout|Hystrix|Istio|
 |Monitor|Boot Admin & Actuator|Grafana & Prometheus|
 |Trace|Cloud Sleuth & Zipkin|jaeger|
 |Config|Cloud Config|Kubernetes Configmap|
 * These two are not fully replaced relation ! For example, even you use Grafana & Prometheus you still need Actuator to export the metrics in application.
+* Istio don't have downgrade fallback feature
 
 ## Monitor
 |item|frameworks or tools|
