@@ -128,5 +128,12 @@ echo DOCKER_HUB_PASSWORD=$DOCKER_HUB_PASSWORD >> ~/.zshrc
 ```
 * [why jib](https://github.com/Jian-Min-Huang/tech-note/issues/32)
 
+## clean
+```
+helm delete --purge sample
+istioctl manifest generate --set profile=demo | kubectl delete -f -
+k3d delete
+```
+
 ## references
 * https://github.com/GoogleContainerTools/skaffold
