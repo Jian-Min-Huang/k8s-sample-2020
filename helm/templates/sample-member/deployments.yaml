@@ -34,3 +34,37 @@ spec:
                   name: sample-member-config
           image: jianminhuang/sample-member:1
           imagePullPolicy: IfNotPresent
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-member-{{ $activeProfiles }}-v2
+  labels:
+    app: sample-member-{{ $activeProfiles }}
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-member-{{ $activeProfiles }}
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: sample-member-{{ $activeProfiles }}
+        version: v2
+    spec:
+      containers:
+        - name: sample-member
+          env:
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  key: TZ
+                  name: sample-member-config
+            - name: activeProfiles
+              valueFrom:
+                configMapKeyRef:
+                  key: activeProfiles
+                  name: sample-member-config
+          image: jianminhuang/sample-member:2
