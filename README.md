@@ -113,7 +113,7 @@ kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=gr
 istioctl dashboard jaeger
 istioctl dashboard kiali
 ```
-![kiali](https://github.com/Jian-Min-Huang/k8s-sample-2020/blob/master/images/kiali.png?raw=true)
+![kiali](https://github.com/Jian-Min-Huang/k8s-sample-2020/blob/master/doc/images/kiali.png?raw=true)
 
 ## jib https://github.com/GoogleContainerTools/jib
 ```

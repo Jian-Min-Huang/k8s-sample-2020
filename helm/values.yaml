@@ -18,5 +18,4 @@ rabbitmq:
 
 ### helm mysql ###
 mysqlRootPassword: "1qaz2wsx"
-mysqlDatabase:test
-
+mysqlDatabase: test

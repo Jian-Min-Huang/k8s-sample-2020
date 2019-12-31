@@ -1,0 +1,81 @@
+version: '3'
+
+services:
+### queue ###
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    environment:
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+    ports:
+      - 15672:15672
+      - 5672:5672
+    networks:
+      - default
+### database ###
+  redis:
+    image: redis:${redis_version}
+    expose:
+      - 6379
+    ports:
+      - 6379:6379
+    networks:
+      - default
+  mysql:
+    image: mysql:${mysql_version}
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    networks:
+      - default
+
+### jaeger ###
+  jaeger-collector:
+    image: jaegertracing/jaeger-collector:${jaeger_version}
+    command: ["--cassandra.keyspace=jaeger_v1_dc1", "--cassandra.servers=cassandra", "--collector.zipkin.http-port=9411"]
+    ports:
+      - "14269"
+      - "14268:14268"
+      - "14267"
+      - "14250"
+      - "9411:9411"
+    restart: on-failure
+    depends_on:
+      - cassandra-schema
+
+  jaeger-query:
+    image: jaegertracing/jaeger-query:${jaeger_version}
+    command: ["--cassandra.keyspace=jaeger_v1_dc1", "--cassandra.servers=cassandra"]
+    ports:
+      - "16686:16686"
+      - "16687"
+    restart: on-failure
+    depends_on:
+      - jaeger-agent
+
+  jaeger-agent:
+    image: jaegertracing/jaeger-agent:${jaeger_version}
+    command: ["--reporter.grpc.host-port=jaeger-collector:14250"]
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+    restart: on-failure
+    depends_on:
+      - jaeger-collector
+
+  cassandra:
+    image: cassandra:${jaeger_cassandra_version}
+
+  cassandra-schema:
+    image: jaegertracing/jaeger-cassandra-schema:${jaeger_version}
+    depends_on:
+      - cassandra
+
+networks:
+  default:
+
