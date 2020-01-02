@@ -25,7 +25,7 @@
 |3rd party service health|Prometheus stack|
 |k8s cluster metrics|Prometheus stack, kiali|
 |database|Prometheus stack|
-|business health|postman newman or Pytest Allure|
+|business health|Postman Newman or pytest Allure|
 
 ## Prerequisite (assume u r a macOS and Z shell coder 👻)
 install brew
