@@ -17,14 +17,15 @@
 ## Monitor 📺
 |item|frameworks or tools|
 |---|---|
-|http 200|Prometheus stack & liveness and readiness probe|
 |application log|ELK stack|
+|business index|Prometheus stack via Elasticsearch|
+|http 200|Prometheus stack & liveness and readiness probe|
 |application metrics|Prometheus stack, jaeger|
-|k8s cluster metrics|Prometheus stack, kiali|
 |services (redis, queue)|Prometheus stack|
-|business index|Prometheus stack|
+|3rd party service health|Prometheus stack|
+|k8s cluster metrics|Prometheus stack, kiali|
 |database|Prometheus stack|
-* I skip the business and 3rd party health.
+|business health|postman newman or Pytest Allure|
 
 ## Prerequisite (assume u r a macOS and Z shell coder 👻)
 install brew
