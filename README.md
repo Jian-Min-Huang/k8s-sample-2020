@@ -17,7 +17,7 @@
 ## Monitor 📺
 |item|frameworks or tools|
 |---|---|
-|application log|ELK stack|
+|application log|Elastic Stack|
 |business index|Prometheus stack via Elasticsearch|
 |http 200|Prometheus stack & liveness and readiness probe|
 |application metrics|Prometheus stack, jaeger|
