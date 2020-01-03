@@ -25,6 +25,10 @@ spring:
     host: sample-rabbitmq
     username: rabbitmq
     password: rabbitmq
+opentracing:
+  jaeger:
+    udp-sender:
+      host: jaeger-agent
 host:
   sample:
     item: "http://sample-item"

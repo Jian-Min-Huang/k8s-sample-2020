@@ -17,3 +17,7 @@ host:
   sample:
     lg:
       gw: "http://sample-lg-gw"
+opentracing:
+  jaeger:
+    udp-sender:
+      host: jaeger-agent

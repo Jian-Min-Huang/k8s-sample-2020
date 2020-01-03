@@ -17,3 +17,7 @@ spring:
     url: jdbc:mysql://sample-mysql:3306/test?useSSL=false
     username: root
     password: 1qaz2wsx
+opentracing:
+  jaeger:
+    udp-sender:
+      host: jaeger-agent
