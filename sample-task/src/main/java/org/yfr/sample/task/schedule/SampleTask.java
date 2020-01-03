@@ -10,6 +10,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import org.yfr.sample.common.api.ItemApi;
 import org.yfr.sample.common.entity.Item;
 
 import javax.annotation.Resource;
@@ -21,6 +22,9 @@ public class SampleTask {
 
     @Value("${host.sample.item}")
     private String itemHost;
+
+    @Resource
+    private ItemApi itemApi;
 
     @Resource
     private RabbitTemplate rabbitTemplate;
@@ -41,7 +45,8 @@ public class SampleTask {
     @SchedulerLock(name = "parseItem", lockAtMostForString = "PT2M")
     public void parseItem() {
         try {
-            log.info("parse {}", restTemplate.exchange(itemHost + "/item", HttpMethod.POST, new HttpEntity(new HttpHeaders()), Item.class).getBody().toString());
+//            log.info("parse {}", restTemplate.exchange(itemHost + "/item", HttpMethod.POST, new HttpEntity(new HttpHeaders()), Item.class).getBody().toString());
+            log.info("parse {}", itemApi.parse().toString());
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
         }

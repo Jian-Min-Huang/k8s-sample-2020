@@ -3,7 +3,11 @@ spring:
 host:
   sample:
     item: "http://127.0.0.1:9527"
-    member: "http://127.0.0.1:9876"
+    member: "http://127.0.0.1:9800"
+opentracing:
+  jaeger:
+    udp-sender:
+      host: localhost
 
 ---
 
