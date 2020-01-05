@@ -14,7 +14,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @EnableSchedulerLock(defaultLockAtMostFor = "PT2M")
 @EnableFeignClients(basePackages = {
-        "org.yfr.sample.common.api"})
+        "org.yfr.sample.common.api"
+})
 public class SampleTaskApp {
 
     @Bean

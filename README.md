@@ -12,7 +12,9 @@
 |Trace|Cloud Sleuth & Zipkin|jaeger|
 |Config|Cloud Config|Configmap|
 * These two are not fully replaced relation! For example, even you use Grafana & Prometheus you still need Actuator to export the metrics in application.
-* Istio doesn't have downgrade fallback feature until 1.4.
+* Istio doesn't have fallback feature until 1.4.
+* Spring Cloud Kubernetes also has Discovery Client, Ribbon and Hystrix feature.
+* Properties under spring.cloud.kubernetes.reload. should not be used in config maps or secrets: changing such properties at runtime may lead to unexpected results. [ref](https://cloud.spring.io/spring-cloud-static/spring-cloud-kubernetes/1.0.0.M2/multi/multi__propertysource_reload.html)
 
 ## Monitor 📺
 |item|frameworks or tools|
@@ -93,9 +95,10 @@ kubectl label namespace default istio-injection=enabled
 
 ## helm install
 ```
-helm install --name sample-redis --values ../helm/values.yaml stable/redis
-helm install --name sample-rabbitmq --values ../helm/values.yaml stable/rabbitmq
-helm install --name sample-mysql --values ../helm/values.yaml stable/mysql
+helm install --name sample-redis --values ./helm/values.yaml stable/redis
+helm install --name sample-rabbitmq --values ./helm/values.yaml stable/rabbitmq
+helm install --name sample-mysql --values ./helm/values.yaml stable/mysql
+helm install --dry-run --debug --name sample ./helm
 helm install --name sample ./helm
 kubectl port-forward svc/istio-ingressgateway 10080:80 -n istio-system
 ```
@@ -139,4 +142,5 @@ k3d delete
 ```
 
 ## references
+* https://cloud.spring.io/spring-cloud-kubernetes/reference/html/
 * https://github.com/GoogleContainerTools/skaffold

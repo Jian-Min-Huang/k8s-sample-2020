@@ -3,32 +3,33 @@ version: '3'
 services:
 ### queue ###
   rabbitmq:
-    image: "rabbitmq:3-management"
+    image: rabbitmq:${rabbitmq_version}
     environment:
       RABBITMQ_DEFAULT_USER: "rabbitmq"
       RABBITMQ_DEFAULT_PASS: "rabbitmq"
     ports:
-      - 15672:15672
-      - 5672:5672
+      - "15672:15672"
+      - "5672:5672"
     networks:
       - default
+
 ### database ###
   redis:
     image: redis:${redis_version}
     expose:
       - 6379
     ports:
-      - 6379:6379
+      - "6379:6379"
     networks:
       - default
-  mysql:
+  mysql: # root/123456
     image: mysql:${mysql_version}
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: "123456"
     expose:
       - 3306
     ports:
-      - 3306:3306
+      - "3306:3306"
     networks:
       - default
 
@@ -43,8 +44,10 @@ services:
       - "14250"
       - "9411:9411"
     restart: on-failure
+    networks:
+      - default
     depends_on:
-      - cassandra-schema
+      - jaeger-cassandra-schema
 
   jaeger-query:
     image: jaegertracing/jaeger-query:${jaeger_version}
@@ -53,6 +56,8 @@ services:
       - "16686:16686"
       - "16687"
     restart: on-failure
+    networks:
+      - default
     depends_on:
       - jaeger-agent
 
@@ -65,14 +70,15 @@ services:
       - "6832:6832/udp"
       - "5778:5778"
     restart: on-failure
+    networks:
+      - default
     depends_on:
       - jaeger-collector
 
-  cassandra:
-    image: cassandra:${jaeger_cassandra_version}
-
-  cassandra-schema:
+  jaeger-cassandra-schema:
     image: jaegertracing/jaeger-cassandra-schema:${jaeger_version}
+    networks:
+      - default
     depends_on:
       - cassandra
 

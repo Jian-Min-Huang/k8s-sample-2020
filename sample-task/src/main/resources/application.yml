@@ -13,22 +13,4 @@ host:
   sample:
     item: "http://127.0.0.1:9527"
     member: "http://127.0.0.1:9876"
-
----
-
-spring:
-  profiles: k8s
-  redis:
-    host: sample-redis-master
-    password: 123456
-  rabbitmq:
-    host: sample-rabbitmq
-    username: rabbitmq
-    password: rabbitmq
-opentracing:
-  jaeger:
-    udp-sender:
-      host: jaeger-agent
-host:
-  sample:
-    item: "http://sample-item"
+custom: "abc"

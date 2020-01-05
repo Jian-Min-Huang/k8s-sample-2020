@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-task-{{ $activeProfiles }}-v1
+  name: sample-task
   labels:
     app: sample-task-{{ $activeProfiles }}
     version: v1
@@ -26,11 +26,11 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: TZ
-                  name: sample-task-config
+                  name: sample-task-{{ $activeProfiles }}
             - name: activeProfiles
               valueFrom:
                 configMapKeyRef:
                   key: activeProfiles
-                  name: sample-task-config
+                  name: sample-task-{{ $activeProfiles }}
           image: jianminhuang/sample-task:1
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always

@@ -1,0 +1,37 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+{{ $redisHost := .Values.stage.redis.host }}
+{{ $jaegerHost := .Values.stage.jaeger.host }}
+{{ $hostSampleItem := .Values.stage.host.sample.item }}
+{{ $hostSampleMember := .Values.stage.host.sample.member }}
+{{ $redisPassword := .Values.global.redis.password }}
+{{ $rabbitmqUsername := .Values.rabbitmq.username }}
+{{ $rabbitmqPassword := .Values.rabbitmq.password }}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sample-task-{{ $activeProfiles }}
+  labels:
+    app: sample-task-{{ $activeProfiles }}
+data:
+  TZ: Asia/Taipei
+  activeProfiles: {{ $activeProfiles }}
+  application.yml: |-
+    spring:
+      profiles: {{ $activeProfiles }}
+      redis:
+        host: {{ $redisHost }}
+        password: {{ $redisPassword }}
+      rabbitmq:
+        host: sample-rabbitmq
+        username: {{ $rabbitmqUsername }}
+        password: {{ $rabbitmqPassword }}
+    opentracing:
+      jaeger:
+        udp-sender:
+          host: {{ $jaegerHost }}
+    host:
+      sample:
+        item: {{ $hostSampleItem }}
+        member: {{ $hostSampleMember }}
+    custom: 123qweaa
