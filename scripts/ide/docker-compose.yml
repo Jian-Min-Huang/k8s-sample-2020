@@ -32,6 +32,14 @@ services:
       - "3306:3306"
     networks:
       - default
+  cassandra: # cassandra/cassandra
+    image: cassandra:${cassandra_version}
+    expose:
+      - 9042
+    ports:
+      - "9042:9042"
+    networks:
+      - default
 
 ### jaeger ###
   jaeger-collector:

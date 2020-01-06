@@ -27,12 +27,12 @@ data:
         host: {{ $rabbitmqHost }}
         username: {{ $rabbitmqUsername }}
         password: {{ $rabbitmqPassword }}
-    opentracing:
-      jaeger:
-        udp-sender:
-          host: {{ $jaegerHost }}
     host:
       sample:
         item: {{ $hostSampleItem }}
         member: {{ $hostSampleMember }}
+    opentracing:
+      jaeger:
+        udp-sender:
+          host: {{ $jaegerHost }}
     custom: 123qweaa

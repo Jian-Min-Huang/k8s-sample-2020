@@ -1,14 +1,15 @@
 {{ $activeProfiles := .Values.activeProfiles }}
+{{ $replicasCount := .Values.replicasCount }}
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-task
+  name: sample-task-{{ $activeProfiles }}-v1
   labels:
     app: sample-task-{{ $activeProfiles }}
     version: v1
 spec:
-  replicas: 1
+  replicas: {{ $replicasCount }}
   selector:
     matchLabels:
       app: sample-task-{{ $activeProfiles }}

@@ -18,6 +18,8 @@ stage:
     host: jaeger-agent
   host:
     sample:
+      lg:
+        gw: "http://sample-lg-gw"
       item: "http://sample-item"
       member: "http://sample-member"
 

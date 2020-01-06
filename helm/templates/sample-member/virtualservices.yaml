@@ -13,5 +13,5 @@ spec:
         weight: 50
       - destination:
           host: sample-member
-          subset: v3
+          subset: v2
         weight: 50

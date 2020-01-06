@@ -22,9 +22,9 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Item parse() throws Exception {
         Item item = Item.builder()
-                .code("2330")
+                .code("0000")
                 .createTime(LocalDateTime.now())
-                .price(new Random(new Date().getTime()).nextInt(200) + 100f)
+                .price(new Random(new Date().getTime()).nextInt(12000) + 100f)
                 .build();
 
         Item save = itemRepository.save(item);

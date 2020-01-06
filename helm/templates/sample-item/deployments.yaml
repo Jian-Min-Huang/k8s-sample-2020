@@ -1,4 +1,5 @@
 {{ $activeProfiles := .Values.activeProfiles }}
+{{ $replicasCount := .Values.replicasCount }}
 
 apiVersion: apps/v1
 kind: Deployment
@@ -8,7 +9,7 @@ metadata:
     app: sample-item-{{ $activeProfiles }}
     version: v1
 spec:
-  replicas: 1
+  replicas: {{ $replicasCount }}
   selector:
     matchLabels:
       app: sample-item-{{ $activeProfiles }}
@@ -43,7 +44,7 @@ metadata:
     app: sample-item-{{ $activeProfiles }}
     version: v2
 spec:
-  replicas: 1
+  replicas: {{ $replicasCount }}
   selector:
     matchLabels:
       app: sample-item-{{ $activeProfiles }}

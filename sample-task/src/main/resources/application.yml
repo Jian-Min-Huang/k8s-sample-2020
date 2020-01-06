@@ -5,12 +5,12 @@ spring:
   rabbitmq:
     username: rabbitmq
     password: rabbitmq
-opentracing:
-  jaeger:
-    udp-sender:
-      host: localhost
 host:
   sample:
     item: "http://127.0.0.1:9527"
     member: "http://127.0.0.1:9876"
+opentracing:
+  jaeger:
+    udp-sender:
+      host: localhost
 custom: "abc"

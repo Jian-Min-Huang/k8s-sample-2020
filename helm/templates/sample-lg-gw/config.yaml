@@ -1,0 +1,25 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+{{ $hostSampleItem := .Values.stage.host.sample.item }}
+{{ $hostSampleMember := .Values.stage.host.sample.member }}
+{{ $jaegerHost := .Values.stage.jaeger.host }}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sample-lg-gw-{{ $activeProfiles }}
+  labels:
+    app: sample-lg-gw-{{ $activeProfiles }}
+data:
+  TZ: Asia/Taipei
+  activeProfiles: {{ $activeProfiles }}
+  application.yml: |-
+    spring:
+      profiles: {{ $activeProfiles }}
+    host:
+      sample:
+        item: {{ $hostSampleItem }}
+        member: {{ $hostSampleMember }}
+    opentracing:
+      jaeger:
+        udp-sender:
+          host: {{ $jaegerHost }}

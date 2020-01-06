@@ -21,7 +21,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     @RabbitListener(queues = "member")
     public void saveMember(String password) {
-        Member save = memberRepository.save(Member.builder().account("Vincent").alias("abc").password(password).createTime(LocalDateTime.now()).build());
+        Member save = memberRepository.save(Member.builder().account("Vincent").alias("111").password(password).createTime(LocalDateTime.now()).build());
         log.info("save member : {}", save);
     }
 

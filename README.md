@@ -100,13 +100,14 @@ helm install --name sample-rabbitmq --values ./helm/values.yaml stable/rabbitmq
 helm install --name sample-mysql --values ./helm/values.yaml stable/mysql
 helm install --dry-run --debug --name sample ./helm
 helm install --name sample ./helm
+helm upgrade --force sample ./helm
 kubectl port-forward svc/istio-ingressgateway 10080:80 -n istio-system
 ```
 
 ## Grafana https://grafana.com/
 ## jaeger https://www.jaegertracing.io/
 ## kiali https://kiali.io/
-enable Grafana, jaeger and kiali with istioctl in default cluster
+enable Grafana, jaeger and kiali (admin/admin) with istioctl in default cluster
 ```
 istioctl manifest apply \
     --set values.kiali.enabled=true \
@@ -123,7 +124,7 @@ istioctl dashboard kiali
 ```
 ![grafana](https://github.com/Jian-Min-Huang/k8s-sample-2020/blob/master/doc/images/grafana.png?raw=true)
 ![jaeger](https://github.com/Jian-Min-Huang/k8s-sample-2020/blob/master/doc/images/jaeger.png?raw=true)
-![kiali](https://github.com/Jian-Min-Huang/k8s-sample-2020/blob/master/doc/images/kiali.png?raw=true)
+![kiali](https://github.com/Jian-Min-Huang/k8s-sample-2020/blob/master/doc/images/kiali.gif?raw=true)
 
 ## jib https://github.com/GoogleContainerTools/jib
 ```
@@ -143,4 +144,5 @@ k3d delete
 
 ## references
 * https://cloud.spring.io/spring-cloud-kubernetes/reference/html/
+* https://github.com/databus23/helm-diff
 * https://github.com/GoogleContainerTools/skaffold

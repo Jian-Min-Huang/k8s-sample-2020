@@ -1,4 +1,5 @@
 {{ $activeProfiles := .Values.activeProfiles }}
+{{ $replicasCount := .Values.replicasCount }}
 
 apiVersion: apps/v1
 kind: Deployment
@@ -8,7 +9,7 @@ metadata:
     app: sample-pt-gw-{{ $activeProfiles }}
     version: v1
 spec:
-  replicas: 1
+  replicas: {{ $replicasCount }}
   selector:
     matchLabels:
       app: sample-pt-gw-{{ $activeProfiles }}
@@ -26,11 +27,11 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: TZ
-                  name: sample-pt-gw-config
+                  name: sample-pt-gw-{{ $activeProfiles }}
             - name: activeProfiles
               valueFrom:
                 configMapKeyRef:
                   key: activeProfiles
-                  name: sample-pt-gw-config
+                  name: sample-pt-gw-{{ $activeProfiles }}
           image: jianminhuang/sample-pt-gw:1
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always

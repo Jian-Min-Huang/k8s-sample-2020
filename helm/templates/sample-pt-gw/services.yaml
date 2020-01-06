@@ -3,15 +3,14 @@
 apiVersion: v1
 kind: Service
 metadata:
+  name: sample-pt-gw
   labels:
     app: sample-pt-gw-{{ $activeProfiles }}
-    service: sample-pt-gw-{{ $activeProfiles }}
-  name: sample-pt-gw
 spec:
   ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 9001
+    - port: 80
+      protocol: TCP
+      targetPort: 9001
   selector:
     app: sample-pt-gw-{{ $activeProfiles }}
 
