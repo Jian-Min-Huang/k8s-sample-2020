@@ -26,14 +26,14 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: TZ
-                  name: sample-item-config
+                  name: sample-item-{{ $activeProfiles }}
             - name: activeProfiles
               valueFrom:
                 configMapKeyRef:
                   key: activeProfiles
-                  name: sample-item-config
+                  name: sample-item-{{ $activeProfiles }}
           image: jianminhuang/sample-item:1
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -61,11 +61,11 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: TZ
-                  name: sample-item-config
+                  name: sample-item-{{ $activeProfiles }}
             - name: activeProfiles
               valueFrom:
                 configMapKeyRef:
                   key: activeProfiles
-                  name: sample-item-config
+                  name: sample-item-{{ $activeProfiles }}
           image: jianminhuang/sample-item:2
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always

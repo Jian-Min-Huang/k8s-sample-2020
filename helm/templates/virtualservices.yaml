@@ -4,17 +4,17 @@ metadata:
   name: sample-virtual-service
 spec:
   hosts:
-  - "*"
+    - "*"
   gateways:
-  - sample-gateway
+    - sample-gateway
   http:
-  - match:
-    - uri:
-        prefix: /member
-    - uri:
-        prefix: /item
-    route:
-    - destination:
-        host: sample-pt-gw
-        port:
-          number: 80
+    - match:
+      - uri:
+          prefix: /member
+      - uri:
+          prefix: /item
+      route:
+        - destination:
+            host: sample-pt-gw
+            port:
+              number: 80

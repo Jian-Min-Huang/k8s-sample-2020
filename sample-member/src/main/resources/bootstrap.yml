@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: sample-member
+  cloud:
+    kubernetes:
+      config:
+        namespace: default
+      reload:
+        enabled: true
+        mode: polling
+        period: 5000

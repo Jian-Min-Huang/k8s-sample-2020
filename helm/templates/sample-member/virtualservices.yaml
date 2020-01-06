@@ -4,14 +4,14 @@ metadata:
   name: sample-member-route
 spec:
   hosts:
-  - sample-member
+    - sample-member
   http:
-  - route:
-    - destination:
-        host: sample-member
-        subset: v1
-      weight: 50
-    - destination:
-        host: sample-member
-        subset: v3
-      weight: 50
+    - route:
+      - destination:
+          host: sample-member
+          subset: v1
+        weight: 50
+      - destination:
+          host: sample-member
+          subset: v3
+        weight: 50

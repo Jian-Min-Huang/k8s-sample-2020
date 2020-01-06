@@ -1,11 +1,12 @@
 {{ $activeProfiles := .Values.activeProfiles }}
 {{ $redisHost := .Values.stage.redis.host }}
-{{ $jaegerHost := .Values.stage.jaeger.host }}
+{{ $rabbitmqHost := .Values.stage.rabbitmq.host }}
 {{ $hostSampleItem := .Values.stage.host.sample.item }}
 {{ $hostSampleMember := .Values.stage.host.sample.member }}
 {{ $redisPassword := .Values.global.redis.password }}
 {{ $rabbitmqUsername := .Values.rabbitmq.username }}
 {{ $rabbitmqPassword := .Values.rabbitmq.password }}
+{{ $jaegerHost := .Values.stage.jaeger.host }}
 
 apiVersion: v1
 kind: ConfigMap
@@ -23,7 +24,7 @@ data:
         host: {{ $redisHost }}
         password: {{ $redisPassword }}
       rabbitmq:
-        host: sample-rabbitmq
+        host: {{ $rabbitmqHost }}
         username: {{ $rabbitmqUsername }}
         password: {{ $rabbitmqPassword }}
     opentracing:

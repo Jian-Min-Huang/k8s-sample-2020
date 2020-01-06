@@ -8,6 +8,12 @@ activeProfiles: stage
 stage:
   redis:
     host: sample-redis-master
+  rabbitmq:
+    host: sample-rabbitmq
+  mysql:
+    url: jdbc:mysql://sample-mysql:3306/test?useSSL=false
+    username: root
+    password: 1qaz2wsx
   jaeger:
     host: jaeger-agent
   host:
