@@ -53,11 +53,13 @@ kubectl cluster-info
 ```
 
 ## helm 2 https://v2.helm.sh/
+## helm diff https://github.com/databus23/helm-diff
 install
 ```
 brew install helm@2
 echo 'export PATH="/usr/local/opt/helm@2/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
+helm plugin install https://github.com/databus23/helm-diff --version master
 ```
 delete it not empty, like a reinstall process
 ```
