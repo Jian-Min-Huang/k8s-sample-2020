@@ -5,7 +5,7 @@
 |feature|Spring|Kubernetes|
 |---|---|---|
 |Service Discovery|Eureka|Internal DNS|
-|Gateway|Zuul & Cloud Gateway|Ingress,Istio Gateway, API Gateway|
+|Gateway|Zuul & Cloud Gateway|Istio Gateway, API Gateway|
 |Traffic|Eureka & Feign & Ribbon|Istio|
 |Circuit Break, Rate Limit, Retry, Timeout, Fast Fall|Hystrix|Istio|
 |Monitor|Boot Admin & Actuator|Grafana & Prometheus|
