@@ -11,8 +11,10 @@
 |Monitor|Boot Admin & Actuator|Grafana & Prometheus|
 |Trace|Cloud Sleuth & Zipkin|jaeger|
 |Config|Cloud Config|Configmap|
+|Job|Schedule & Batch|Jobs|
 * These two are not fully replaced relation! For example, even you use Grafana & Prometheus you still need Actuator to export the metrics in application.
-* Istio doesn't have fallback feature until 1.4.
+* Istio doesn't have fallback feature until 1.4 but has two interest features (fault injection & mirror)
+* Can't find alternative of Spring Security yet.
 * Spring Cloud Kubernetes also has Discovery Client, Ribbon and Hystrix feature.
 * Properties under spring.cloud.kubernetes.reload. should not be used in config maps or secrets: changing such properties at runtime may lead to unexpected results. [ref](https://cloud.spring.io/spring-cloud-static/spring-cloud-kubernetes/1.0.0.M2/multi/multi__propertysource_reload.html)
 
