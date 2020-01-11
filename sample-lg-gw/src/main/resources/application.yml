@@ -8,16 +8,3 @@ opentracing:
   jaeger:
     udp-sender:
       host: localhost
-
----
-
-spring:
-  profiles: k8s
-host:
-  sample:
-    item: "http://sample-item"
-    member: "http://sample-member"
-opentracing:
-  jaeger:
-    udp-sender:
-      host: jaeger-agent
