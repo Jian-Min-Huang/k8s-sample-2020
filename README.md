@@ -22,7 +22,7 @@
 |item|frameworks or tools|
 |---|---|
 |application log|Elastic Stack|
-|business index|Elastic|
+|business index|Elastic Stack|
 |http 200|Prometheus stack & liveness and readiness probe|
 |application metrics|Prometheus stack, jaeger|
 |services (redis, queue)|Prometheus stack|
