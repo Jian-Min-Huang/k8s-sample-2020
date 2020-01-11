@@ -1,0 +1,20 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+{{ $hostSampleLgGw := .Values.local.host.sample.lg.gw }}
+{{ $jaegerHost := .Values.local.jaeger.host }}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sample-pt-gw-{{ $activeProfiles }}
+  labels:
+    app: sample-pt-gw-{{ $activeProfiles }}
+data:
+  TZ: Asia/Taipei
+  activeProfiles: {{ $activeProfiles }}
+  application.yml: |-
+    spring:
+      profiles: {{ $activeProfiles }}
+    host:
+      sample:
+        lg:
+          gw: {{ $hostSampleLgGw }}

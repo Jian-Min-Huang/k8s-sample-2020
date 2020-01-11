@@ -1,0 +1,51 @@
+# === === Common Configuration === === #
+replicasCount: 1
+activeProfiles: local
+
+
+# === === Profile Base Configuration === === #
+
+local:
+  redis:
+    host: sample-redis-master
+  rabbitmq:
+    host: sample-rabbitmq
+  mysql:
+    url: jdbc:mysql://sample-mysql:3306/test?useSSL=false
+    username: root
+    password: 1qaz2wsx
+  host:
+    sample:
+      lg:
+        gw: "http://sample-lg-gw"
+      item: "http://sample-item"
+      member: "http://sample-member"
+
+
+# === === helm install service init configuration === === #
+
+### helm common ###
+metrics:
+  enabled: true
+persistence:
+  enabled: false
+
+### helm redis ###
+global:
+  redis:
+    password: 123456
+master:
+  persistence:
+    enabled: false
+slave:
+  persistence:
+    enabled: false
+
+### helm rabbitmq ###
+rabbitmq:
+  username: rabbitmq
+  password: rabbitmq
+
+### helm mysql ###
+mysqlRootPassword: "1qaz2wsx"
+mysqlDatabase: test

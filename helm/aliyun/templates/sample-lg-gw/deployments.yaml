@@ -1,0 +1,37 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+{{ $replicasCount := .Values.replicasCount }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-lg-gw-{{ $activeProfiles }}-v1
+  labels:
+    app: sample-lg-gw-{{ $activeProfiles }}
+    version: v1
+spec:
+  replicas: {{ $replicasCount }}
+  selector:
+    matchLabels:
+      app: sample-lg-gw-{{ $activeProfiles }}
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: sample-lg-gw-{{ $activeProfiles }}
+        version: v1
+    spec:
+      containers:
+        - name: sample-lg-gw
+          env:
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  key: TZ
+                  name: sample-lg-gw-{{ $activeProfiles }}
+            - name: activeProfiles
+              valueFrom:
+                configMapKeyRef:
+                  key: activeProfiles
+                  name: sample-lg-gw-{{ $activeProfiles }}
+          image: jianminhuang/sample-lg-gw:1.1
+          imagePullPolicy: Always

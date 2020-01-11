@@ -1,0 +1,29 @@
+{{ $activeProfiles := .Values.activeProfiles }}
+{{ $rabbitmqHost := .Values.local.rabbitmq.host }}
+{{ $rabbitmqUsername := .Values.rabbitmq.username }}
+{{ $rabbitmqPassword := .Values.rabbitmq.password }}
+{{ $mysqlUrl := .Values.local.mysql.url }}
+{{ $mysqlUsername := .Values.local.mysql.username }}
+{{ $mysqlPassword := .Values.local.mysql.password }}
+{{ $jaegerHost := .Values.local.jaeger.host }}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sample-member-{{ $activeProfiles }}
+  labels:
+    app: sample-member-{{ $activeProfiles }}
+data:
+  TZ: Asia/Taipei
+  activeProfiles: {{ $activeProfiles }}
+  application.yml: |-
+    spring:
+      profiles: {{ $activeProfiles }}
+      rabbitmq:
+        host: sample-rabbitmq
+        username: {{ $rabbitmqUsername }}
+        password: {{ $rabbitmqPassword }}
+      datasource:
+        url: {{ $mysqlUrl }}
+        username: {{ $mysqlUsername }}
+        password: {{ $mysqlPassword }}
