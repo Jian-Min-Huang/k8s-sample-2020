@@ -1,7 +1,6 @@
 {{ $activeProfiles := .Values.activeProfiles }}
 {{ $hostSampleItem := .Values.local.host.sample.item }}
 {{ $hostSampleMember := .Values.local.host.sample.member }}
-{{ $jaegerHost := .Values.local.jaeger.host }}
 
 apiVersion: v1
 kind: ConfigMap

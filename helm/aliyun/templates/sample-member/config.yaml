@@ -5,7 +5,6 @@
 {{ $mysqlUrl := .Values.local.mysql.url }}
 {{ $mysqlUsername := .Values.local.mysql.username }}
 {{ $mysqlPassword := .Values.local.mysql.password }}
-{{ $jaegerHost := .Values.local.jaeger.host }}
 
 apiVersion: v1
 kind: ConfigMap

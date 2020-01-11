@@ -6,7 +6,6 @@
 {{ $redisPassword := .Values.global.redis.password }}
 {{ $rabbitmqUsername := .Values.rabbitmq.username }}
 {{ $rabbitmqPassword := .Values.rabbitmq.password }}
-{{ $jaegerHost := .Values.local.jaeger.host }}
 
 apiVersion: v1
 kind: ConfigMap
