@@ -1,9 +1,15 @@
 spring:
   application:
     name: sample-member
+
+---
+
+spring:
+  profile: local
   cloud:
     kubernetes:
       config:
+        name: sample-member-local
         namespace: default
       reload:
         enabled: true

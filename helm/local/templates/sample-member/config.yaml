@@ -1,11 +1,11 @@
 {{ $activeProfiles := .Values.activeProfiles }}
-{{ $rabbitmqHost := .Values.stage.rabbitmq.host }}
+{{ $rabbitmqHost := .Values.local.rabbitmq.host }}
 {{ $rabbitmqUsername := .Values.rabbitmq.username }}
 {{ $rabbitmqPassword := .Values.rabbitmq.password }}
-{{ $mysqlUrl := .Values.stage.mysql.url }}
-{{ $mysqlUsername := .Values.stage.mysql.username }}
-{{ $mysqlPassword := .Values.stage.mysql.password }}
-{{ $jaegerHost := .Values.stage.jaeger.host }}
+{{ $mysqlUrl := .Values.local.mysql.url }}
+{{ $mysqlUsername := .Values.local.mysql.username }}
+{{ $mysqlPassword := .Values.local.mysql.password }}
+{{ $jaegerHost := .Values.local.jaeger.host }}
 
 apiVersion: v1
 kind: ConfigMap

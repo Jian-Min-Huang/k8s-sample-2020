@@ -1,7 +1,7 @@
 {{ $activeProfiles := .Values.activeProfiles }}
-{{ $hostSampleItem := .Values.stage.host.sample.item }}
-{{ $hostSampleMember := .Values.stage.host.sample.member }}
-{{ $jaegerHost := .Values.stage.jaeger.host }}
+{{ $hostSampleItem := .Values.local.host.sample.item }}
+{{ $hostSampleMember := .Values.local.host.sample.member }}
+{{ $jaegerHost := .Values.local.jaeger.host }}
 
 apiVersion: v1
 kind: ConfigMap

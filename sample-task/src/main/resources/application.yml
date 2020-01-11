@@ -1,5 +1,5 @@
 spring:
-  profiles: local
+  profiles: ide
   redis:
     host: 127.0.0.1
   rabbitmq:

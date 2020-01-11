@@ -1,11 +1,11 @@
 # === === Common Configuration === === #
 replicasCount: 1
-activeProfiles: stage
+activeProfiles: local
 
 
 # === === Profile Base Configuration === === #
 
-stage:
+local:
   redis:
     host: sample-redis-master
   rabbitmq:

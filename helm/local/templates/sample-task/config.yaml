@@ -1,12 +1,12 @@
 {{ $activeProfiles := .Values.activeProfiles }}
-{{ $redisHost := .Values.stage.redis.host }}
-{{ $rabbitmqHost := .Values.stage.rabbitmq.host }}
-{{ $hostSampleItem := .Values.stage.host.sample.item }}
-{{ $hostSampleMember := .Values.stage.host.sample.member }}
+{{ $redisHost := .Values.local.redis.host }}
+{{ $rabbitmqHost := .Values.local.rabbitmq.host }}
+{{ $hostSampleItem := .Values.local.host.sample.item }}
+{{ $hostSampleMember := .Values.local.host.sample.member }}
 {{ $redisPassword := .Values.global.redis.password }}
 {{ $rabbitmqUsername := .Values.rabbitmq.username }}
 {{ $rabbitmqPassword := .Values.rabbitmq.password }}
-{{ $jaegerHost := .Values.stage.jaeger.host }}
+{{ $jaegerHost := .Values.local.jaeger.host }}
 
 apiVersion: v1
 kind: ConfigMap
