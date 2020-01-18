@@ -21,15 +21,15 @@
 ## Monitor 📺
 |item|frameworks or tools|
 |---|---|
-|application log|Elastic Stack|
-|business index|Elastic Stack|
-|http 200|Prometheus stack & liveness and readiness probe|
-|application metrics|Prometheus stack, jaeger|
-|services (redis, queue)|Prometheus stack|
-|3rd party service health|Prometheus stack|
-|k8s cluster metrics|Prometheus stack, kiali|
-|database|Prometheus stack|
-|business health|Postman Newman or pytest Allure|
+|application log|✅ Elastic Stack|
+|business index|✅ Elastic Stack|
+|http 200|❓ Prometheus stack & liveness and readiness probe|
+|application metrics|✅ Prometheus stack, jaeger|
+|services (redis, queue)|✅ Prometheus stack|
+|3rd party service health|❓ Prometheus stack|
+|k8s cluster metrics|✅ Prometheus stack, kiali|
+|database|✅ Prometheus stack|
+|business health|❓ Postman Newman or Python pytest Allure|
 
 ## Prerequisite (assume u r a macOS and Z shell coder 👻)
 install brew
@@ -148,5 +148,6 @@ k3d delete
 
 ## references
 * https://cloud.spring.io/spring-cloud-kubernetes/reference/html/
+* https://k2r2bai.com/2019/12/03/linedevday/part3/
 * https://github.com/databus23/helm-diff
 * https://github.com/GoogleContainerTools/skaffold
