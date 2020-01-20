@@ -27,7 +27,14 @@ local:
 ### helm common ###
 metrics:
   enabled: true
+  serviceMonitor:
+    enabled: true
+    namespace: monitoring
 persistence:
+  enabled: false
+
+### helm prometheus-operator ###
+kubelet:
   enabled: false
 
 ### helm redis ###
