@@ -11,7 +11,7 @@
 |Monitor|Boot Admin & Actuator|Grafana & Prometheus|
 |Trace|Cloud Sleuth & Zipkin|jaeger|
 |Config|Cloud Config|Configmap|
-|Job|Schedule & Batch|Jobs|
+|Job|Schedule & Batch|Jobs & CronJob|
 * These two are not fully replaced relation! For example, even you use Grafana & Prometheus you still need Actuator to export the metrics in application.
 * Istio doesn't have fallback feature until 1.4 but has two interest features (fault injection & mirror)
 * Can't find alternative of Spring Security yet.
@@ -23,13 +23,13 @@
 |---|---|
 |application log|✅ Elastic Stack|
 |business index|✅ Elastic Stack|
-|http 200|❓ Prometheus stack & liveness and readiness probe|
-|application metrics|✅ Prometheus stack, jaeger|
-|services (redis, queue)|✅ Prometheus stack|
-|3rd party service health|❓ Prometheus stack|
-|k8s cluster metrics|✅ Prometheus stack, kiali|
-|database|✅ Prometheus stack|
-|business health|❓ Postman Newman or Python pytest Allure|
+|http 200|✅ Prometheus Monitoring Stack & Liveness and Readiness Probes|
+|application metrics|✅ Prometheus Monitoring Stack, jaeger|
+|services (Cache, Queue)|✅ Prometheus Monitoring Stack|
+|3rd party service health|✅ Prometheus Monitoring Stack|
+|k8s cluster metrics|✅ Prometheus Monitoring Stack, kiali|
+|database|✅ Prometheus Monitoring Stack|
+|business health|✅ CronJob & Python|
 
 ## Prerequisite (assume u r a macOS and Z shell coder 👻)
 install brew
