@@ -1,5 +1,6 @@
 package org.yfr.sample.item.service.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.yfr.sample.common.entity.Item;
@@ -19,6 +20,8 @@ public class ItemServiceImpl implements ItemService {
     @Resource
     private ItemRepository itemRepository;
 
+    ObjectMapper om = new ObjectMapper();
+
     @Override
     public Item parse() throws Exception {
         Item item = Item.builder()
@@ -29,6 +32,7 @@ public class ItemServiceImpl implements ItemService {
 
         Item save = itemRepository.save(item);
         log.info("save {}", save.toString());
+//        log.info(om.writeValueAsString(save));
 
         return save;
     }
