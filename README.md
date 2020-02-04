@@ -102,6 +102,7 @@ kubectl label namespace default istio-injection=enabled
 helm install --name sample-redis --values ./helm/local/values.yaml stable/redis
 helm install --name sample-rabbitmq --values ./helm/local/values.yaml stable/rabbitmq
 helm install --name sample-mysql --values ./helm/local/values.yaml stable/mysql
+helm install --name sample-logstash --values ./values.yaml stable/logstash
 helm install --dry-run --debug --name sample ./helm/local
 helm install --name sample ./helm/local
 helm upgrade --force sample ./helm/local
