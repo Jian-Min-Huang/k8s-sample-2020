@@ -29,7 +29,7 @@
 |3rd party service health|✅ Prometheus Monitoring Stack|
 |k8s cluster metrics|✅ Prometheus Monitoring Stack, kiali|
 |database|✅ Prometheus Monitoring Stack|
-|business health|✅ CronJob & Python [health-checker](https://github.com/Jian-Min-Huang/health-checker)|
+|end to end testing|✅ CronJob & Python [health-checker](https://github.com/Jian-Min-Huang/health-checker)|
 
 ## Prerequisite (assume u r a macOS and Z shell coder 👻)
 install brew
