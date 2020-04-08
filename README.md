@@ -4,14 +4,16 @@
 ## Frameworks or Tools 🛠
 |feature|Spring|Kubernetes|
 |---|---|---|
+|Mode|Client Side|Server Side|
 |Service Discovery|Eureka|Internal DNS|
-|Gateway|Zuul & Cloud Gateway|Istio Gateway, API Gateway|
-|Traffic|Eureka & Feign & Ribbon|Istio|
+|Gateway|Cloud Gateway|Istio Ingress Gateway|
+|Traffic|Eureka & Feign & Ribbon|Istio Sidecar (Envoy)|
 |Circuit Break, Rate Limit, Retry, Timeout, Fast Fall|Hystrix|Istio|
 |Monitor|Boot Admin & Actuator|Grafana & Prometheus|
 |Trace|Cloud Sleuth & Zipkin|jaeger|
 |Config|Cloud Config|Configmap|
 |Job|Schedule & Batch|Jobs & CronJob|
+|Infrastructure Tool|Terraform Ansible Docker-Compose|Terraform Helm|
 * These two are not fully replaced relation! For example, even you use Grafana & Prometheus you still need Actuator to export the metrics in application.
 * Istio doesn't have fallback feature until 1.4 but has two interest features (fault injection & mirror)
 * Can't find alternative of Spring Security yet.
