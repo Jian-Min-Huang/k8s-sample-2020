@@ -4,7 +4,6 @@
 ## Frameworks or Tools 🛠
 |feature|Spring|Kubernetes|
 |---|---|---|
-|Mode|Client Side|Server Side|
 |Service Discovery|Eureka|Internal DNS|
 |Gateway|Cloud Gateway|Istio Ingress Gateway|
 |Traffic|Eureka & Feign & Ribbon|Istio Sidecar (Envoy)|
